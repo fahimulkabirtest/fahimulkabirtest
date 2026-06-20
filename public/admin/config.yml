@@ -9,11 +9,11 @@
 #   branch: main
 
 backend:
-name: github
-repo: fahimulkabir/academic-portfolio
-branch: main
-auth_scope: repo
-base_url: https://portfolio-cms-oauth-mu.vercel.app # Replace with your actual proxy URL
+  name: github
+  repo: fahimulkabir/academic-portfolio
+  branch: main
+  auth_scope: repo
+  base_url: https://portfolio-cms-oauth-mu.vercel.app
 
 site_url: https://academic-portfolio-gamma-eight.vercel.app/
 

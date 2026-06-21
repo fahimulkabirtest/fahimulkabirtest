@@ -1,7 +1,7 @@
 ---
 name: Md Fahimul Kabir Chowdhury
 image: uploads/md_fahimul_kabir_chowdhury-400x400.png
-cv: https://fahimulkabir.github.io/assets/Md%20Fahimul%20Kabir%20Chowdhury(Resume).pdf
+cv: uploads/mobilenetv2.pdf
 googleScholar: https://scholar.google.com/citations?user=EQToCZwAAAAJ&hl=en
 orcid: https://orcid.org/0009-0003-8034-5235
 linkedin: https://www.linkedin.com/in/fahimulkabirchowdhury/

@@ -13,10 +13,10 @@ backend:
   repo: fahimulkabirtest/fahimulkabirtest
   branch: main
   auth_scope: repo
-  base_url: https://fahimulkabir-academic-portfolio.vercel.app/
+  base_url: https://fahimulkabirtest.vercel.app/
   auth_endpoint: api/auth
 
-site_url: https://fahimulkabir-academic-portfolio.vercel.app/
+site_url: https://fahimulkabirtest.vercel.app/
 
 media_folder: "public/uploads"
 public_folder: "uploads"

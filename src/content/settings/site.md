@@ -1,9 +1,9 @@
 ---
-title: "Example Lab"
-baseUrl: "https://fahimul-academic-portfolio.netlify.app/"
-yourFirstName: John
-yourLastName: Doe
-navbarTitle: John Doe
+title: Fahimul's Lab
+baseUrl: https://fahimulkabirtest.vercel.app
+yourFirstName: Md Fahimul Kabir
+yourLastName: Chowdhury
+navbarTitle: Fahimul Kabir Chowdhury
 allowIndexing: true
 disallowAdmin: true
 ---

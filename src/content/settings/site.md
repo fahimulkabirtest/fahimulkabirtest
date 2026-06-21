@@ -6,9 +6,9 @@ yourLastName: Chowdhury
 navbarTitle: Fahimul Kabir
 allowIndexing: true
 disallowAdmin: true
-showHome: false
-showPublications: false
-showResearch: false
-showMembers: false
-showJoinUs: false
+showHome: true
+showPublications: true
+showResearch: true
+showMembers: true
+showJoinUs: true
 ---

@@ -1,12 +1,9 @@
 ---
-title: "New test"
-image: uploads/project1.jpg
+title: Development of a Smart System for Neonatal Jaundice Detection Using CNN
+  Algorithm
+image: uploads/plv_nr.png
 links:
-  - label: Paper
-    url: https://example.com/paper
   - label: GitHub
-    url: https://github.com/example
+    url: https://github.com/fahimulkabir
 ---
-
-We develop interpretable deep learning models for genomic and biomedical data,
-focusing on transparency, robustness, and clinical applicability.
+We develop interpretable deep learning models for genomic and biomedical data, focusing on transparency, robustness, and clinical applicability.

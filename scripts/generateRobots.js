@@ -1,20 +1,41 @@
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// 🧠 Smart URL Detection Function
+function getSiteUrl() {
+  // 1. Check if user manually set a custom domain
+  if (process.env.SITE_URL) return process.env.SITE_URL;
 
-const SITE_URL = process.env.SITE_URL || "https://example-professor-site.com";
+  // 2. Auto-detect Vercel Production URL
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+  }
+  // Fallback for Vercel Preview deployments
+  if (process.env.VERCEL_URL) {
+    return `https://${process.env.VERCEL_URL}`;
+  }
+
+  // 3. Auto-detect GitHub Pages URL
+  if (process.env.GITHUB_ACTIONS && process.env.GITHUB_REPOSITORY) {
+    const [owner, repo] = process.env.GITHUB_REPOSITORY.split("/");
+    return `https://${owner}.github.io/${repo}`;
+  }
+
+  // 4. Fallback if run locally without variables
+  console.warn("⚠️ WARNING: Could not auto-detect URL. Using fallback for robots.txt.");
+  return "https://YOUR-URL-HERE.com";
+}
+
+const finalUrl = getSiteUrl();
 
 const robots = `
 User-agent: *
 Allow: /
 
-Sitemap: ${SITE_URL}/sitemap.xml
+Sitemap: ${finalUrl}/sitemap.xml
 `;
 
-const outputPath = path.join(__dirname, "..", "public", "robots.txt");
-
+const outputPath = path.join(process.cwd(), "public", "robots.txt");
 fs.writeFileSync(outputPath, robots.trim());
-console.log("✅ robots.txt generated");
+
+console.log(`✅ robots.txt generated successfully for: ${finalUrl}`);

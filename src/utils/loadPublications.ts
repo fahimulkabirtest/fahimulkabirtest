@@ -1,5 +1,11 @@
 import type { Publication } from "../types/publication";
 
+// Helper to strip CMS quotes and fix escaped newlines
+function cleanString(str?: string) {
+  if (!str) return "";
+  return str.replace(/^["']|["']$/g, '').replace(/\\n/g, '\n');
+}
+
 function parseFrontmatter(raw: string) {
   const match = raw.match(/^---([\s\S]*?)---([\s\S]*)$/);
 
@@ -14,7 +20,9 @@ function parseFrontmatter(raw: string) {
 
   frontmatter.split("\n").forEach((line) => {
     const [key, ...rest] = line.split(":");
-    data[key.trim()] = rest.join(":").trim();
+    if (key && rest.length >= 0) {
+      data[key.trim()] = rest.join(":").trim();
+    }
   });
 
   return { data, body };
@@ -32,11 +40,13 @@ export async function loadPublications(): Promise<Publication[]> {
     const { data, body } = parseFrontmatter(raw);
 
     publications.push({
-      title: data.title,
-      authors: data.authors,
-      venue: data.venue,
+      // Apply the cleaner to all text fields
+      title: cleanString(data.title),
+      authors: cleanString(data.authors),
+      venue: cleanString(data.venue),
       year: Number(data.year),
-      link: data.link || undefined,
+      link: cleanString(data.link) || undefined,
+      bibtex: cleanString(data.bibtex) || undefined,
       body,
     });
   }

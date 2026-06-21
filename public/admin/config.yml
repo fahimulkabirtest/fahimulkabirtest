@@ -60,12 +60,6 @@ collections:
             widget: "boolean"
             default: true
 
-          - label: "Navigation: Show Home"
-            name: "showHome"
-            widget: "boolean"
-            default: true
-            required: true  # This is the only required toggle
-
           - label: "Navigation: Show Publications"
             name: "showPublications"
             widget: "boolean"

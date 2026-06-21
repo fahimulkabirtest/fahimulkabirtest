@@ -1,3 +1,4 @@
+import fm from "front-matter";
 import type { Publication } from "../types/publication";
 
 // Helper to strip CMS quotes and fix escaped newlines
@@ -37,17 +38,18 @@ export async function loadPublications(): Promise<Publication[]> {
 
   for (const path in files) {
     const raw = await files[path]();
-    const { data, body } = parseFrontmatter(raw);
+    
+    // Let the library handle all the complicated YAML parsing automatically
+    const { attributes, body } = fm<any>(raw);
 
     publications.push({
-      // Apply the cleaner to all text fields
-      title: cleanString(data.title),
-      authors: cleanString(data.authors),
-      venue: cleanString(data.venue),
-      year: Number(data.year),
-      link: cleanString(data.link) || undefined,
-      bibtex: cleanString(data.bibtex) || undefined,
-      body,
+      title: attributes.title,
+      authors: attributes.authors,
+      venue: attributes.venue,
+      year: Number(attributes.year),
+      link: attributes.link || undefined,
+      bibtex: attributes.bibtex || undefined,
+      body: body.trim(),
     });
   }
 

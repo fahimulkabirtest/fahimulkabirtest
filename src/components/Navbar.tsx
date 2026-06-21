@@ -6,22 +6,17 @@ import { loadSiteSettings } from "../utils/loadSiteSettings";
 import type { SiteSettings } from "../types/site";
 
 export default function Navbar() {
-  const [settings, setSettings] = useState<SiteSettings | null>(null);
-
-  useEffect(() => {
-    loadSiteSettings().then((data) => {
-      setSettings(data);
-      
-      // It updates the browser tab dynamically
-      document.title = data.title; 
-    });
-  }, []);
-  
   const [menuOpen, setMenuOpen] = useState(false);
   const [siteSettings, setSiteSettings] = useState<SiteSettings | null>(null);
 
   useEffect(() => {
-    loadSiteSettings().then(setSiteSettings);
+    loadSiteSettings().then((data) => {
+      // 1. Save the data to our single state
+      setSiteSettings(data);
+      
+      // 2. Update the browser tab dynamically
+      document.title = data.title; 
+    });
   }, []);
 
   if (!siteSettings) return null;

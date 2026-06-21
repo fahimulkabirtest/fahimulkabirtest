@@ -61,7 +61,7 @@ collections:
             default: true
 
   - name: "professor"
-    label: "Professor Profile"
+    label: "Your Profile"
     files:
       - file: "src/content/professor/profile.md"
         label: "Professor Info"

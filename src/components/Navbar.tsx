@@ -11,15 +11,21 @@ export default function Navbar() {
 
   useEffect(() => {
     loadSiteSettings().then((data) => {
-      // 1. Save the data to our single state
       setSiteSettings(data);
-      
-      // 2. Update the browser tab dynamically
-      document.title = data.title; 
+      document.title = data.title;
     });
   }, []);
 
   if (!siteSettings) return null;
+
+  // 👉 Filter the navigation array dynamically based on CMS settings
+  const visibleNavItems = NAVIGATION.filter((item) => {
+    if (!item.settingKey) return true; // Show items without a toggle by default
+    
+    // Use the settingKey to look up the true/false value in siteSettings
+    const isVisible = siteSettings[item.settingKey as keyof SiteSettings];
+    return isVisible === true;
+  });
 
   return (
     <header className="site-header">
@@ -42,7 +48,8 @@ export default function Navbar() {
           aria-label="Main navigation"
         >
           <ul>
-            {NAVIGATION.map((item, idx) => (
+            {/* 👉 Map over the filtered array instead of the raw NAVIGATION array */}
+            {visibleNavItems.map((item, idx) => (
               <li key={idx} className={item.children ? "dropdown" : ""}>
                 {!item.children &&
                   item.path &&

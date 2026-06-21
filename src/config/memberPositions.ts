@@ -4,6 +4,7 @@ export const MEMBER_POSITIONS = [
   "phd",
   "ms",
   "bachelors",
+  "alumni",
 ] as const;
 
 export type MemberPosition = typeof MEMBER_POSITIONS[number];

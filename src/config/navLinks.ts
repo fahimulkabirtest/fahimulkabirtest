@@ -10,7 +10,6 @@ export const NAVIGATION: NavItem[] = [
   {
     label: "Home",
     path: "/",
-    settingKey: "showHome",
   },
   {
     label: "Publications",

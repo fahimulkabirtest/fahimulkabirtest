@@ -1,7 +1,7 @@
 ---
 name: Md Fahimul Kabir Chowdhury
 image: uploads/md_fahimul_kabir_chowdhury-400x400.png
-cv: uploads/mobilenetv2.pdf
+cv: https://www.researchgate.net/profile/Md-Chowdhury-95/publication/396462961_Development_of_a_Smart_System_for_Neonatal_Jaundice_Detection_Using_CNN_Algorithm/links/68edf59bffdca73694b7d5c9/Development-of-a-Smart-System-for-Neonatal-Jaundice-Detection-Using-CNN-Algorithm.pdf
 googleScholar: https://scholar.google.com/citations?user=EQToCZwAAAAJ&hl=en
 orcid: https://orcid.org/0009-0003-8034-5235
 linkedin: https://www.linkedin.com/in/fahimulkabirchowdhury/

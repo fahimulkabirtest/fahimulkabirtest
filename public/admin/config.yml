@@ -10,7 +10,7 @@
 
 backend:
   name: github
-  repo: fahimulkabir/academic-portfolio
+  repo: fahimulkabirtest/fahimulkabirtest
   branch: main
   auth_scope: repo
   base_url: https://fahimulkabir-academic-portfolio.vercel.app/

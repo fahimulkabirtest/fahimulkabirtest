@@ -1,6 +1,7 @@
 // src/types/site.ts
 export type SiteSettings = {
   title: string;
+  baseUrl?: string;
   yourFirstName: string;
   yourLastName: string;
   navbarTitle?: string;

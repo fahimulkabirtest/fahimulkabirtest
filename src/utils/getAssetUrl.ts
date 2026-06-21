@@ -1,18 +1,22 @@
 export function getAssetUrl(imagePath: string) {
   if (!imagePath) return "";
 
-  // 1. If it's an external link, return it as-is
+  // 1. External links
   if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
     return imagePath;
   }
 
-  // 2. Strip any accidental leading slashes so we just have "uploads/image.png"
+  const baseUrl = import.meta.env.BASE_URL; // e.g., "/fahimulkabirtest/"
+
+  // 2. DEFENSIVE CHECK: Did the CMS or another component already add the base URL?
+  // If the imagePath already starts with "/fahimulkabirtest", just return it to prevent doubling.
+  const strippedBase = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+  if (imagePath.startsWith(baseUrl) || imagePath.startsWith(strippedBase)) {
+    return imagePath;
+  }
+
+  // 3. Clean and combine safely
   const cleanPath = imagePath.startsWith("/") ? imagePath.slice(1) : imagePath;
-
-  // 3. Grab Vite's automatically generated Base URL
-  const baseUrl = import.meta.env.BASE_URL;
-
-  // 4. Combine them safely (prevents double slashes)
   return baseUrl.endsWith('/') 
     ? `${baseUrl}${cleanPath}` 
     : `${baseUrl}/${cleanPath}`;

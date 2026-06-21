@@ -6,6 +6,6 @@ import react from "@vitejs/plugin-react";
 // })
 
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS ? "/academic-portfolio/" : "/",
+  base: process.env.GITHUB_ACTIONS ? "/fahimulkabirtest/" : "/",
   plugins: [react()],
 });

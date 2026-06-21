@@ -64,26 +64,31 @@ collections:
             name: "showHome"
             widget: "boolean"
             default: true
+            required: true  # This is the only required toggle
 
           - label: "Navigation: Show Publications"
             name: "showPublications"
             widget: "boolean"
             default: true
+            required: false
 
           - label: "Navigation: Show Research"
             name: "showResearch"
             widget: "boolean"
             default: true
+            required: false
 
           - label: "Navigation: Show Members"
             name: "showMembers"
             widget: "boolean"
             default: false
+            required: false
 
           - label: "Navigation: Show Join Us"
             name: "showJoinUs"
             widget: "boolean"
             default: false
+            required: false
 
   - name: "professor"
     label: "Your Profile"

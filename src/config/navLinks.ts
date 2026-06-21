@@ -3,42 +3,33 @@ export type NavItem = {
   path?: string;
   external?: boolean;
   children?: NavItem[];
+  settingKey?: string; // Maps to the CMS toggle name
 };
 
 export const NAVIGATION: NavItem[] = [
   {
     label: "Home",
     path: "/",
+    settingKey: "showHome",
   },
   {
     label: "Publications",
     path: "/publications",
+    settingKey: "showPublications",
   },
   {
     label: "Research",
     path: "/research",
+    settingKey: "showResearch",
   },
   {
     label: "Members",
     path: "/members",
+    settingKey: "showMembers",
   },
   {
-    label: "Courses",
-    children: [
-      {
-        label: "Free Courses",
-        path: "https://courses.tech2etc.com/all-courses/",
-        external: true,
-      },
-      {
-        label: "Paid Courses",
-        path: "https://www.udemy.com/user/md-fahimul-kabir-chowdhury/",
-        external: true,
-      },
-    ],
-  },
-  // {
-  //   label: "Contact",
-  //   path: "/contact",
-  // },
+    label: "Join Us",
+    path: "/join",
+    settingKey: "showJoinUs",
+  }
 ];

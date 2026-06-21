@@ -1,8 +1,9 @@
 export interface Publication {
   title: string;
   authors: string;
-  venue: string;
+  venue?: string;
   year: number;
-  link?: string; // optional paper link
-  body: string; // markdown content
+  link?: string;
+  bibtex?: string;
+  body?: string;
 }

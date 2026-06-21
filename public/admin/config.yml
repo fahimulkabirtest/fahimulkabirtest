@@ -60,6 +60,31 @@ collections:
             widget: "boolean"
             default: true
 
+          - label: "Navigation: Show Home"
+            name: "showHome"
+            widget: "boolean"
+            default: true
+
+          - label: "Navigation: Show Publications"
+            name: "showPublications"
+            widget: "boolean"
+            default: true
+
+          - label: "Navigation: Show Research"
+            name: "showResearch"
+            widget: "boolean"
+            default: true
+
+          - label: "Navigation: Show Members"
+            name: "showMembers"
+            widget: "boolean"
+            default: false
+
+          - label: "Navigation: Show Join Us"
+            name: "showJoinUs"
+            widget: "boolean"
+            default: false
+
   - name: "professor"
     label: "Your Profile"
     files:

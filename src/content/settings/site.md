@@ -1,5 +1,5 @@
 ---
-title: Fahimul's Lab
+title: Fahimul Kabir's Lab
 baseUrl: https://fahimulkabirtest.vercel.app
 yourFirstName: Md Fahimul Kabir
 yourLastName: Chowdhury

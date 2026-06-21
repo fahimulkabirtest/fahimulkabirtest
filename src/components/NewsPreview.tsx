@@ -4,8 +4,17 @@ import { Link } from "react-router-dom";
 import { loadNews } from "../utils/loadNews";
 import type { NewsItem } from "../types/news";
 
+// 1. Helper function to turn "2025-12-01" into "December 2025"
+function formatMonthYear(dateString: string) {
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+}
+
 type NewsPreviewProps = {
-  limit?: number; // optional
+  limit?: number;
   showMoreLink?: boolean;
 };
 
@@ -30,11 +39,17 @@ export default function NewsPreview({
       <hr />
 
       <ul className="list">
-        {news.map((item, i) => (
-          <li className="custom-list" key={i}>
-            <ReactMarkdown>{item.body}</ReactMarkdown>
-          </li>
-        ))}
+        {news.map((item, i) => {
+          // 2. Create the bolded prefix (e.g., "**December 2025:** ")
+          const formattedPrefix = `**${formatMonthYear(item.date)}:** `;
+
+          return (
+            <li className="custom-list" key={i}>
+              {/* 3. Stitch the prefix and the CMS body text together */}
+              <ReactMarkdown>{formattedPrefix + item.body}</ReactMarkdown>
+            </li>
+          );
+        })}
       </ul>
 
       {showMoreLink && limit && (
